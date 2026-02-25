@@ -1,3 +1,4 @@
 dev_build.sh
 .vscode/
 build/
+secret_wifi_creds.h

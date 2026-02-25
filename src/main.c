@@ -13,9 +13,10 @@ err_t connect_wifi(const char* ssid, const char* password);
 
 int main() {
 
+// ---------- Basic Inits and Wifi Connections ----------
+
     stdio_init_all();
     cyw43_arch_init();
-
     sleep_ms(3000); // give some time for the USB serial to initialize
 
     WL_LOGI("main", "Starting WiFi connection with SSID: %s, PASSWORD:%s ", SSID, PASSWORD);
@@ -24,6 +25,7 @@ int main() {
         WL_LOGE("main", "failed to connect to WiFi");
         return -1;
     }
+// ---------- DNS RESOLUTION ----------
 
     const char hostname[] = "www.anticipateapi.com.au";    
     WL_LOGI("main", "now resolving hostname: %s", hostname);
@@ -32,10 +34,16 @@ int main() {
 
     while(1) {
         // keep main alive whilst DNS resolver works in background thread
+        
+        // call "cyw43_arch_poll()" here if not using "threadsafe_backgroud"
     }
 
     return 0;
 }
+
+
+
+
 
 err_t connect_wifi(const char *ssid, const char *password) {
     
