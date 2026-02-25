@@ -41,9 +41,6 @@ err_t connect_wifi(const char *ssid, const char *password) {
     
     // connect to wifi with obtained credentials
     WL_LOGI("main", "connecting to WiFi with credentials:\n    ssid: \"%s\"\n    password: \"%s\"", ssid, password);
-    /*printf("    ssid: \"%s\"\n", ssid);
-    fflush(stdout);
-    printf("    password: \"%s\"\n", password);*/
 
     cyw43_arch_enable_sta_mode();
     
