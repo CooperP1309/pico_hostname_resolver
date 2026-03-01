@@ -13,7 +13,7 @@ err_t connect_wifi(const char* ssid, const char* password);
 
 int main() {
 
-// ---------- Basic Inits and Wifi Connections ----------
+// ---------- Basic Inits and Wifi Connecting ----------
 
     stdio_init_all();
     cyw43_arch_init();
@@ -25,12 +25,14 @@ int main() {
         WL_LOGE("main", "failed to connect to WiFi");
         return -1;
     }
+
 // ---------- DNS RESOLUTION ----------
 
-    const char hostname[] = "www.anticipateapi.com.au";    
+    const char hostname[] = "www.example.com.au";    
     WL_LOGI("main", "now resolving hostname: %s", hostname);
 
-    resolve_hostname(hostname);
+    ip_addr_t host_ip;
+    resolve_hostname(hostname, &host_ip);
 
     while(1) {
         // keep main alive whilst DNS resolver works in background thread
