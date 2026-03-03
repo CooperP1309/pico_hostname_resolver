@@ -45,12 +45,22 @@ Step 2:
 
         ./build.sh
 
-Step 3:
+Step 3: 
+    The build script will prompt you with your wifi details. Don't worry, this is completely local to your system, just provide an SSID and wifi PASSWORD when prompted and this will be put into a .h file that will be compiled onto the code of your Pico Board.
+
+    What is your wifi SSID (your wifi name)?
+    My_Wifi_Name
+    What is your wifi password?
+    My_Password_123 
+
+    This is necessary to connect the pico board to the internet to allow for connection to DNS servers.
+
+Step 4:
     Flash to the Pico. With the pico in flash mode (plugged into a usb port whilst the 'BOOTSEL' button is held down), run the following command from the repo root:
 
         cp build/pico_hostname_resolver.uf2 /media/'username'/RPI-RP2
 
-Step 4:
+Step 5:
     To observe the output, install minicom (if you enjoy pain) and run the following command:
 
         minicom -D /dev/ttyACM0 -b 115200

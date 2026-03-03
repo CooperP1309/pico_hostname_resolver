@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# begin by setting wifi SSID and PASSWORD from user input
+echo "What is your wifi SSID (your wifi name)?"
+read ssid
+echo "What is your wifi password?"
+read password
+echo "#define SSID \"$ssid\"
+#define PASSWORD \"$password\"" > src/secret_wifi_creds.h
+
 # enable error checking to bail if compiling fails
 set -e
 
